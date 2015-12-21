@@ -14,8 +14,8 @@
 (function ($) {
     $.fn.instagramstream = function (options) {
         var defaults = {            
-            username: 'pixel-industry',
-            limit: 6,
+            username: 'pixel_industry',
+            limit: 10,
             overlay: true,
             textContainer: '.is-text',
             textPosition: '4'
