@@ -50,7 +50,7 @@ jQuery('.instagram-stream').instagramstream({
 </pre>
 
 <h3>CSS Styling</h3>
-<p> When plugin loads, it makes one unordered list. Inside of it, every image is one list item. To style it, simply refer to for example **.instagram-stream** li in your css file and edit it the way you like. We also included demo with simple html and css styling for easier plugin understanding.</p>
+<p> When plugin loads, it makes one unordered list. Inside of it, every image is one list item. To style it, simply refer to for example .instagram-stream li in your css file and edit it the way you like. We also included demo with simple html and css styling for easier plugin understanding.</p>
 
 <h3>Change Log</h3>
 <p>v1.0</p>
