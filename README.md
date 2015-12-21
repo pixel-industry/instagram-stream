@@ -38,12 +38,12 @@ jQuery plugin that displays latest images from instagram with addition to text t
 <p>Now enter this js code inside "script" tags at the bottom of the body in your HTML document and enter your username:</p>
 <pre>
 <code>
-$('.instagram-stream').instagramstream({
-    limit: 15,
-    username: 'pixel_industry',
-    overlay: true,
+jQuery('.instagram-stream').instagramstream({
+    limit: 8, // number of images to fetch
+    username: 'pixel_industry', // your username
+    overlay: true, // add overlay layer of hover effect
     textContainer: '.is-text', // default: '.is-text', pass jQuery object or selector
-    textPosition: '4'
+    textPosition: '4' // place that at this position
 });
 </code>
 </pre>
