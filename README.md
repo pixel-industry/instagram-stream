@@ -27,6 +27,10 @@ jQuery plugin that displays latest images from instagram with addition to text t
 <pre>
 <code>
 &#60;article class="instagram-stream"&#62;
+&#60;div class="is-text"&#62;
+    &#60;h1&#62;Some heading&#60;/h1&#62;
+    &#60;p&#62;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget nulla bibendum, ullamcorper sem auctor, vulputate tortor. Ut vitae metus odio. &#60;/p&#62;
+&#60;/div&#62;
 &#60;/article&#62;
 </code>
 </pre>
@@ -38,7 +42,7 @@ $('.instagram-stream').instagramstream({
     limit: 15,
     username: 'pixel_industry',
     overlay: true,
-    textContainer: jQuery('.is-text'), // default: '.instagram-stream-text', pass jQuery object or selector
+    textContainer: '.is-text', // default: '.is-text', pass jQuery object or selector
     textPosition: '4'
 });
 </code>

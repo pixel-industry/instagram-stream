@@ -27,7 +27,7 @@
            
             object.append("<ul class=\"instagram-list\"></ul>")
             var access_token = "200718541.a4734ab.cc050fa16d6141bf8b709c97ab158f57";
-            url = "https://api.instagram.com/v1/users/search?q=" + options.username + "&access_token=" + access_token + "&count=1&callback=?";
+            var url = "https://api.instagram.com/v1/users/search?q=" + options.username + "&access_token=" + access_token + "&count=1&callback=?";
             $.getJSON(url, function (data) {
 
                 $.each(data.data, function (i, shot) {
@@ -86,13 +86,13 @@
                                         } else if(jQuery.type(options.textContainer) == 'string'){
 
                                             // find element in DOM
-                                            var textHtml = jQuery(options.textContainer);
+                                            var textHtml = jQuery(options.textContainer);                                            
 
                                             // append HTML if it exists
                                             if(typeof(textHtml) != 'undefined'){
                                                 var text_li = $('<li/>').attr({
                                                     class: 'is-text'
-                                                }).append();
+                                                }).append(textHtml.html());
                                                 $("ul", object).append(text_li);
 
                                                 // remove original element
@@ -103,7 +103,6 @@
                                     
                                     var li = $('<li/>').append(tmp);
                                     $("ul", object).append(li);
-
 
                                 });
                             });
