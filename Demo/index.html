@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="pixel-industry">
+
+        <link rel="stylesheet" href="style.css" /> 
+
+
+    </head>
+
+    <body>
+        
+        <article class="grid_3 instagram-stream">
+            <section class="section-title">
+                <h4>Instagram</h4>
+            </section>
+            <div class="is-text">
+                <h1>Some heading</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget nulla bibendum, ullamcorper sem auctor, vulputate tortor. Ut vitae metus odio. </p>
+            </div>
+        </article>
+       
+        <script  src="jquery-1.8.3.js"></script> <!-- jQuery library -->
+        <script src="../instagram-stream.jquery.js"></script>
+
+
+        <script>
+            /* <![CDATA[ */
+            
+            $('.instagram-stream').instagramstream({
+                limit: 15,
+                username: 'foodydiy',
+                overlay: true,
+                textContainer: jQuery('.is-text'), // default: '.instagram-stream-text', pass jQuery object or selector
+                textPosition: '4'
+            });
+            /* ]]> */
+        </script>
+    </body>
+</html>
