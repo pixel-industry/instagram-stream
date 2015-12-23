@@ -7,6 +7,7 @@ body{
     display: block;
     padding: 30px;
     display: table;
+    box-sizing: border-box;
 }
 
 .clearfix{
@@ -14,17 +15,23 @@ body{
 }
 
 .instagram-stream li{
-    width: 240px;
-    height: 240px;
     list-style: none;
     float: left;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    box-sizing: border-box;
 }
 
 .instagram-stream li img{
-    width: 240px;
-    height: 240px;
+    width: 100%;
+    height: auto;
+}
+
+.instagram-list{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
 }
 
 .section-title{
