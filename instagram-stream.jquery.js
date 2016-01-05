@@ -44,13 +44,13 @@
 
                                     // image quality
                                     if (options.imageQuality == 'standard') {
-                                        
+
                                         var imgQuality = 'standard_resolution';
                                     } else if (options.imageQuality == 'low') {
-                                        
+
                                         var imgQuality = 'low_resolution';
                                     } else if (options.imageQuality == 'thumbnail') {
-                                        
+
                                         var imgQuality = 'thumbnail';
                                     }
 
@@ -170,8 +170,8 @@
                         var imageSize = $this.outerWidth();
 
                         if (options.textSize > 1) {
-                            var textSizeWidth = ($this.width());
-                            var textSizeHeight = ($this.width());
+                            var textSizeWidth = (imageSize);
+                            var textSizeHeight = (imageSize);
                         }
 
                         // smartphones
@@ -180,8 +180,8 @@
                         var imageSize = $this.outerWidth();
 
                         if (options.textSize > 1) {
-                            var textSizeWidth = ($this.width());
-                            var textSizeHeight = ($this.width());
+                            var textSizeWidth = (imageSize);
+                            var textSizeHeight = (imageSize);
                         }
 
                         // smartphones and tables
@@ -189,9 +189,9 @@
 
                         var imageSize = $this.outerWidth() / 2;
 
-                        if (options.textSize > 2) {
-                            var textSizeWidth = $this.width() / 2;
-                            var textSizeHeight = $this.width() / 2;
+                        if (options.textSize >= 2) {
+                            var textSizeWidth = imageSize;
+                            var textSizeHeight = imageSize;
                         }
 
                         // tablets
@@ -199,16 +199,19 @@
 
                         var imageSize = $this.outerWidth() / 4;
 
-                        if (options.textSize > 2) {
-                            var textSizeWidth = ($this.width() / 4) * 2;
-                            var textSizeHeight = ($this.width() / 4);
+                        if (options.textSize >= 2) {
+                            var textSizeWidth = imageSize * 2;
+                            var textSizeHeight = imageSize;
                         }
 
                         // smaller screen desktops
                     } else if (windowWidth > 992 && windowWidth < 1199) {
                         var imageSize = $this.outerWidth() / 6;
 
-                        if (options.textSize > 2) {
+                        if (options.textSize >= 3) {
+                            var textSizeWidth = ($this.width() / 6) * 3;
+                            var textSizeHeight = ($this.width() / 6);
+                        } else if (options.textSize == 2) {
                             var textSizeWidth = ($this.width() / 6) * 2;
                             var textSizeHeight = ($this.width() / 6);
                         }
@@ -227,7 +230,7 @@
                     object.find('li:not(.is-text)').width(imageSize).height(imageSize);
 
                     // change text width and height
-                    object.find('li.is-text').width(textSizeWidth).height(textSizeHeight);
+                    object.find('li.is-text').outerWidth(textSizeWidth).outerHeight(textSizeHeight);
                 });
 
             }
