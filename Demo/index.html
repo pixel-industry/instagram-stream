@@ -9,6 +9,9 @@
     </head>
 
     <body>
+        <div class="demo-container">
+            <p>To view this demo working, please edit script at the bottom of the file. You will need to enter your own Instagram username (username) and enter Access Token (accessToken). More info about generating Access Token can be found on plugin <a target="_BLANK" href="https://github.com/pixel-industry/instagram-stream">GitHub page</a>.</p>
+        </div>
         
         <article class="instagram-stream">
             <section class="section-title">
@@ -33,7 +36,9 @@
                 overlay: true, // add overlay layer of hover effect
                 textContainer: '.is-text', // default: '.is-text', pass jQuery object or selector
                 textPosition: '4', // place that at this position
-                textSize: '3' // size of text e.g. 1 - has size like one image; 2 - has size of two images etc.
+                textSize: '2', // size of text e.g. 1 - has size like one image; 2 - has size of two images etc.
+                imageQuality: 'standard', // standard | low | thumbnail; standard: 640 x 640px; low: 320 x 320px; thumbnail: 150 x 150px
+                accessToken: '' // your access token
             });
             /* ]]> */
         </script>

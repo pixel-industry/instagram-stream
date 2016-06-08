@@ -44,15 +44,36 @@ jQuery('.instagram-stream').instagramstream({
     username: 'pixel_industry', // your username
     overlay: true, // add overlay layer of hover effect
     textContainer: '.is-text', // default: '.is-text', pass jQuery object or selector
-    textPosition: '4' // place that at this position
+    textPosition: '4', // place that at this position
+    textSize: '1', // size of text e.g. 1 - has size like one image; 2 - has size of two images etc.
+    imageQuality: 'standard', // standard | low | thumbnail; standard: 640 x 640px; low: 320 x 320px; thumbnail: 150 x 150px
+    accessToken: '' // your access token
 });
 </code>
 </pre>
+
+<h3></h3>
+<ul>
+<li>Recent API and Terms changes allows fetching images only from your own account.</li>
+<li>Access Token is now required to fetch images from Instagram account. Guide for generating access token can be found <a href="http://jelled.com/instagram/access-token">here</a>.</li>
+</ul>
 
 <h3>CSS Styling</h3>
 <p> When plugin loads, it makes one unordered list. Inside of it, every image is one list item. To style it, simply refer to for example .instagram-stream li in your css file and edit it the way you like. We also included demo with simple html and css styling for easier plugin understanding.</p>
 
 <h3>Change Log</h3>
+<p>v1.0.3</p>
+<ul>
+<li>Fixed issues with recent API and terms changes.</li>
+</ul>
+<p>v1.0.2</p>
+<ul>
+<li>New parameters: "textSize" and "imageQuality" introduced.</li>
+</ul>
+<p>v1.0.1</p>
+<ul>
+<li>Image and text size issues fixed.</li>
+</ul>
 <p>v1.0</p>
 
 

@@ -3,7 +3,7 @@
  * 
  * Author: Pixel Industry
  * Website: http://pixel-industry.com
- * Version: 1.0
+ * Version: 1.0.3
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
@@ -20,7 +20,8 @@
             textContainer: '.is-text', // selector or jQuery object of div with text
             textPosition: '4', // position of text in grid of photos
             textSize: '1', // size of text e.g. 1 - has size like one image; 2 - has size of two images etc.
-            imageQuality: 'standard' // standard | low | thumbnail; standard: 640 x 640px; low: 320 x 320px; thumbnail: 150 x 150px
+            imageQuality: 'standard', // standard | low | thumbnail; standard: 640 x 640px; low: 320 x 320px; thumbnail: 150 x 150px
+            accessToken: ''
         };
         var options = $.extend(defaults, options);
 
@@ -28,7 +29,15 @@
             var object = $(this);
 
             object.append("<ul class=\"instagram-list\"></ul>")
-            var access_token = "200718541.a4734ab.cc050fa16d6141bf8b709c97ab158f57";
+
+            // check if access token is set
+            if ((typeof (options.accessToken) != "undefined") && options.accessToken != "") {
+                var access_token = options.accessToken;
+            } else {
+                console.warn("Instagram Access Token is not set. Please enter it in plugin init call.");
+                return;
+            }
+
             var url = "https://api.instagram.com/v1/users/search?q=" + options.username + "&access_token=" + access_token + "&count=1&callback=?";
             $.getJSON(url, function (data) {
 
@@ -71,7 +80,7 @@
                                         target: '_blank',
                                         title: photo_title
                                     });
-                                    var tmp = $(url_container).append(photo_container);
+                                    //var tmp = $(url_container).append(photo_container);
                                     if (options.overlay) {
                                         var overlay_div = $('<div/>').addClass('img-overlay');
                                         $(url_container).append(overlay_div);
@@ -126,7 +135,7 @@
                                         }
                                     }
 
-                                    var li = $('<li/>').append(tmp);
+                                    var li = $('<li/>').css('background-image', 'url(' + photo_src + ')').append(url_container);
                                     $("ul", object).append(li);
 
                                 });
@@ -167,70 +176,81 @@
                     // image size
                     if (windowWidth < 320) {
 
-                        var imageSize = $this.outerWidth();
+                        var imageSizeWidth = 100;
+                        var imageSizeHeight = $this.outerWidth();
 
                         if (options.textSize > 1) {
-                            var textSizeWidth = (imageSize);
-                            var textSizeHeight = (imageSize);
+                            var textSizeWidth = (imageSizeWidth);
+                            var textSizeHeight = (imageSizeHeight);
                         }
 
                         // smartphones
                     } else if (windowWidth > 320 && windowWidth < 479) {
 
-                        var imageSize = $this.outerWidth();
+                        var imageSizeWidth = 100;
+                        var imageSizeHeight = $this.outerWidth();
+                        var imageSize = imageSizeHeight;
 
                         if (options.textSize > 1) {
-                            var textSizeWidth = (imageSize);
-                            var textSizeHeight = (imageSize);
+                            var textSizeWidth = (imageSizeWidth);
+                            var textSizeHeight = (imageSizeHeight);
                         }
 
                         // smartphones and tables
                     } else if (windowWidth > 480 && windowWidth < 767) {
 
-                        var imageSize = $this.outerWidth() / 2;
+                        var imageSizeWidth = (100 / 2);
+                        var imageSizeHeight = $this.outerWidth() / 2;
+                        var imageSize = imageSizeHeight;
 
                         if (options.textSize >= 2) {
-                            var textSizeWidth = imageSize;
-                            var textSizeHeight = imageSize;
+                            var textSizeWidth = imageSizeWidth;
+                            var textSizeHeight = imageSizeHeight;
                         }
 
                         // tablets
                     } else if (windowWidth > 768 && windowWidth < 991) {
 
-                        var imageSize = $this.outerWidth() / 4;
+                        var imageSizeWidth = (100 / 4);
+                        var imageSizeHeight = $this.outerWidth() / 4;
+                        var imageSize = imageSizeHeight;
 
                         if (options.textSize >= 2) {
-                            var textSizeWidth = imageSize * 2;
-                            var textSizeHeight = imageSize;
+                            var textSizeWidth = imageSizeWidth * 2;
+                            var textSizeHeight = imageSizeHeight;
                         }
 
                         // smaller screen desktops
                     } else if (windowWidth > 992 && windowWidth < 1199) {
-                        var imageSize = $this.outerWidth() / 6;
+
+                        var imageSizeWidth = (100 / 6);
+                        var imageSizeHeight = $this.outerWidth() / 6;
+                        var imageSize = imageSizeHeight;
 
                         if (options.textSize >= 3) {
-                            var textSizeWidth = ($this.width() / 6) * 3;
-                            var textSizeHeight = ($this.width() / 6);
+                            var textSizeWidth = imageSizeWidth * 3;
+                            var textSizeHeight = imageSizeHeight;
                         } else if (options.textSize == 2) {
-                            var textSizeWidth = ($this.width() / 6) * 2;
-                            var textSizeHeight = ($this.width() / 6);
+                            var textSizeWidth = imageSizeWidth * 2;
+                            var textSizeHeight = imageSizeHeight;
                         }
 
                         // large screen desktops
                     } else if (windowWidth > 1200) {
 
+                        var imageSizeWidth = (100 / 8);
+                        var imageSizeHeight = $this.outerWidth() / 8;
+                        var imageSize = imageSizeHeight;
 
-                        var imageSize = $this.width() / 8;
-
-                        var textSizeWidth = ($this.width() / 8) * options.textSize;
-                        var textSizeHeight = ($this.width() / 8);
+                        var textSizeWidth = imageSizeWidth * options.textSize;
+                        var textSizeHeight = imageSizeHeight;
                     }
 
                     // change image width and height
-                    object.find('li:not(.is-text)').width(imageSize).height(imageSize);
+                    object.find('li:not(.is-text)').width(imageSizeWidth + "%").height(imageSizeHeight);
 
                     // change text width and height
-                    object.find('li.is-text').outerWidth(textSizeWidth).outerHeight(textSizeHeight);
+                    object.find('li.is-text').outerWidth(textSizeWidth + "%").outerHeight(textSizeHeight);
                 });
 
             }
