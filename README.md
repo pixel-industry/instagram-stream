@@ -1,7 +1,7 @@
 Instagram Stream jQuery Plugin
 =================================
 
-jQuery plugin that displays latest images from instagram with addition to text that can be added inside of gallery.
+jQuery plugin that displays latest images from Instagram with addition to text that can be added inside of gallery.
 
 <p>Author: Pixel Industry<br />
 Website - pixel-industry.com<br />
@@ -9,13 +9,13 @@ Licence - MIT</p>
 
 <h3>Description</h3>
 <p>
-jQuery plugin that displays latest images from instagram with addition to text that can be added inside of gallery.
-                        You can use it on multiple places across your website. Only thing you
-                        need is the username of the account from which you want images
-                        to be shown.
+jQuery plugin that displays latest images from Instagram with addition to text that can be added inside of gallery.
+You can use it on multiple places across your website. 
+<del>Only thing you need is the username of the account from which you want images to be shown. </del>
+Plugin now requires access token to fetch images from your account along with Instagram username.
 </p>
 
-<h3>Instalation</h3>
+<h3>Installation</h3>
 <p>This plugin needs only two js files to work. You must include them at the bottom of the body in your HTML document. These are:</p>
 <ul>
 <li>jQuery library</li>
@@ -52,7 +52,7 @@ jQuery('.instagram-stream').instagramstream({
 </code>
 </pre>
 
-<h3></h3>
+<h3>Notes</h3>
 <ul>
 <li>Recent API and Terms changes allows fetching images only from your own account.</li>
 <li>Access Token is now required to fetch images from Instagram account. Guide for generating access token can be found <a href="http://jelled.com/instagram/access-token">here</a>.</li>
@@ -75,6 +75,9 @@ jQuery('.instagram-stream').instagramstream({
 <li>Image and text size issues fixed.</li>
 </ul>
 <p>v1.0</p>
+<ul>
+<li>Initial release</li>
+</ul>
 
 
 
