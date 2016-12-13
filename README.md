@@ -56,6 +56,8 @@ jQuery('.instagram-stream').instagramstream({
 <ul>
 <li>Recent API and Terms changes allows fetching images only from your own account.</li>
 <li>Access Token is now required to fetch images from Instagram account. Guide for generating access token can be found <a href="http://jelled.com/instagram/access-token">here</a>.</li>
+<li>If you can't get images to appear. Try generating token with URL below:<br/>
+<pre>https://instagram.com/oauth/authorize/?client_id=[CLIENT_ID]&redirect_uri=http://localhost&response_type=token&scope=basic+public_content+follower_list+comments+relationships+likes</pre></li>
 </ul>
 
 <h3>CSS Styling</h3>
